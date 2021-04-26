@@ -1,0 +1,14 @@
+﻿@model IEnumerable<KisiselWebSitesi.Models.Model.Blog>
+@using KisiselWebSitesi.Helper;
+
+@foreach (var item in Model)
+{
+    <li>
+        <img src="@item.ResimURL" class="pull-left" alt="@item.Baslik" />
+        <h6><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Baslik</a></h6>
+        <p>
+            @Html.Raw(item.Icerik.Substring(0, 15))
+        </p>
+    </li>
+}
+
